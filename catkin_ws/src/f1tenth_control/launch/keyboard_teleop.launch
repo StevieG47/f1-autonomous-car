@@ -1,0 +1,5 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+    <node pkg='f1tenth_control' type='keyboard_teleop1.py' name='f1tenth_control'/>
+
+</launch>

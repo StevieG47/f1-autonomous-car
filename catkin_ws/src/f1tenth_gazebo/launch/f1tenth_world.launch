@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <arg name="namespace" default="/"/>
+  <arg name="world" default="empty"/> 
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="cmd_timeout" default="0.5"/>
+  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find turtlebot_gazebo)/worlds/corridor.world"/>
+    <!--<arg name="world_name" value="$(find f1)/worlds/empty.world"/>-->
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
+
+  <!-- Vehicle pose -->
+  <arg name="x" default="-7.0"/>
+  <arg name="y" default="-1.7"/>
+  <arg name="z" default="0.1"/>
+  <arg name="roll" default="0.0"/>
+  <arg name="pitch" default="0.0"/>
+  <arg name="yaw" default="0.0"/>
+
+
+  
+  <param name="robot_description" 
+    command="$(find xacro)/xacro --inorder '$(find f1tenth_description)/urdf/f1tenth.xacro'"/>
+
+  <!-- Read joint positions from joint_states, then publish the vehicle's state to tf. -->
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+        type="robot_state_publisher">
+    <param name="publish_frequency" value="30.0"/>
+    <!--remap from="/joint_states" to="/f1tenth/joint_states" /-->
+  </node>
+
+
+  <!--Spawn the vehicle-->
+
+  <node name="f1tenth_spawn" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-urdf -param robot_description -model f1tenth
+              -gazebo_namespace /$(arg namespace)/gazebo
+              -x $(arg x) -y $(arg y) -z $(arg z)
+              -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
+
+    <!-- Load the joint controllers. One of these publishes the joint states
+         to joint_states. -->
+
+  <node name="controller_manager" pkg="controller_manager" type="spawner" respawn="false" output="screen"
+        args="$(find f1)/config/f1tenth_joint_states.yaml"/>
+
+  <!-- ros_control racecar launch file -->
+  <!--include file="$(find f1tenth_control)/launch/f1tenth_control.launch" ns="/"/-->
+
+<!-- Control the steering, axle, and shock absorber joints. -->
+    <node name="ackermann_controller" pkg="f1"
+          type="ackermann_controller">
+      <param name="cmd_timeout" value="$(arg cmd_timeout)"/>
+      <rosparam file="$(find f1)/config/f1tenth_ackermann_controller.yaml" command="load"/>
+    </node>
+
+
+</launch>

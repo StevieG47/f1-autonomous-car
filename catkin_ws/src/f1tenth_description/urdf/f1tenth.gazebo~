@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot>
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/f1tenth</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+  <!-- Link1 -->
+  <gazebo reference="chassis">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <!-- Link2 -->
+  <gazebo reference="left_rear_wheel">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Link3 -->
+  <gazebo reference="right_rear_wheel">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Link4 -->
+  <gazebo reference="left_front_wheel">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Link5 -->
+  <gazebo reference="right_front_wheel">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Link6 -->
+  <gazebo reference="left_steering_link">
+    <mu1>0.6</mu1>
+    <mu2>0.6</mu2>
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <!-- Link7 -->
+  <gazebo reference="right_steering_link">
+    <mu1>0.6</mu1>
+    <mu2>0.6</mu2>
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+
+</robot>

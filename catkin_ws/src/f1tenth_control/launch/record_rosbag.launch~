@@ -1,0 +1,6 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+ <node pkg="rosbag" type="record" name="rosbag_record_camera"
+       args="record -O $(find f1tenth_control)/results/cameras_and_steering_ang /camera1/rgb/image_raw /camera2/rgb/image_raw /camera3/rgb/image_raw /camera4/rgb/image_raw /ackermann_cmd" />
+</launch>

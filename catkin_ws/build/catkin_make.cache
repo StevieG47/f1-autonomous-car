@@ -1,0 +1,2 @@
+f1tenth_control:f1tenth_description:f1tenth_gazebo
+-DCATKIN_DEVEL_PREFIX=/root/ROS/f1/f1/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/root/ROS/f1/f1/catkin_ws/install -G Unix Makefiles

@@ -1,0 +1,551 @@
+<?xml version="1.0"?>
+
+<robot name="f1tenth" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <!--robotNamespace>/f1tenth</robotNamespace-->
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+<!-- hokuyo -->
+  <gazebo reference="laser">
+    <material>Gazebo/Grey</material>
+    <sensor type="ray" name="hokuyo_sensor">
+      <pose>0 0 0.0124 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>1081</samples>
+            <resolution>1</resolution>
+            <min_angle>-2.0943951023931953</min_angle>
+            <max_angle>2.0943951023931953</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>10.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>laser</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+<!-- camera -->
+
+  <gazebo reference="camera_link">
+    <sensor type="depth" name="camera1">
+        <always_on>1</always_on>
+        <visualize>true</visualize>             
+        <camera>
+            <horizontal_fov>1.047</horizontal_fov>  
+            <image>
+                <width>640</width>
+                <height>480</height>
+                <format>R8G8B8</format>
+            </image>
+            <depth_camera>
+
+            </depth_camera>
+            <clip>
+                <near>0.1</near>
+                <far>100</far>
+            </clip>
+        </camera>
+             <plugin name="camera_controller" filename="libgazebo_ros_openni_kinect.so">
+             <alwaysOn>true</alwaysOn>
+                <updateRate>10.0</updateRate>
+                <cameraName>camera</cameraName>
+                <frameName>camera_link</frameName>                   
+            <imageTopicName>rgb/image_raw</imageTopicName>
+            <depthImageTopicName>depth/image_raw</depthImageTopicName>
+            <pointCloudTopicName>depth/points</pointCloudTopicName>
+            <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>              
+            <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>            
+            <pointCloudCutoff>0.4</pointCloudCutoff>                
+                <hackBaseline>0.07</hackBaseline>
+                <distortionK1>0.0</distortionK1>
+                <distortionK2>0.0</distortionK2>
+                <distortionK3>0.0</distortionK3>
+                <distortionT1>0.0</distortionT1>
+                <distortionT2>0.0</distortionT2>
+            <CxPrime>0.0</CxPrime>
+            <Cx>0.0</Cx>
+            <Cy>0.0</Cy>
+            <focalLength>0.0</focalLength>
+            </plugin>
+    </sensor>
+  </gazebo>
+
+
+<!--IMU-->
+
+  <gazebo>
+    <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
+      <alwaysOn>true</alwaysOn>
+      <bodyName>imu_link</bodyName>
+      <topicName>imu</topicName>
+      <serviceName>imu_service</serviceName>
+      <gaussianNoise>0.0</gaussianNoise>
+      <updateRate>20.0</updateRate>
+    </plugin>
+  </gazebo>
+
+<!-- Import Rviz colors -->
+  
+  <xacro:include filename="$(find f1tenth_description)/urdf/materials.xacro" />
+
+<!-- Null inertial element -->
+  
+  <xacro:macro name="null_inertial">
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" 
+               iyy="0.001" iyz="0" 
+               izz="0.001"/>
+      </inertial>
+  </xacro:macro>
+
+<!-- CHASSIS -->
+
+  <link name="chassis">
+    <pose>0 0 0.0 0 0 0</pose>
+
+    <visual name='chassis_visual'>
+      <origin xyz="0 0 0.07" rpy=" 0 0 0"/>
+      <geometry>
+        <box size=".4 .2 .08"/>
+      </geometry>
+      <material name="blue" />
+    </visual>
+
+    <collision name='chassis_collision'>
+      <origin xyz="0 0 0.07" rpy=" 0 0 0"/>
+      <geometry>
+        <box size=".4 .2 .07"/>
+      </geometry>
+      <material name="blue" />
+    </collision>
+
+    <inertial>
+      <origin xyz="0 0 0.075" rpy="0 0 0" />
+      <mass value="4.0" />
+      <inertia ixx="0.0141666"  ixy="0"  ixz="0"
+               iyy="0.0541666"  iyz="0"
+               izz="0.0666666" />
+    </inertial>
+  </link>
+
+  <gazebo reference="chassis">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+
+<!-- LEFT REAR WHEEL -->
+
+  <link name="left_rear_wheel">
+
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.045" radius="0.05" />
+      </geometry>
+    </collision>
+
+    <visual name="left_rear_wheel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.045" radius="0.05" />
+      </geometry>
+    <material name="black" />
+    </visual>
+
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.29" />
+      <inertia ixx="0.0027" ixy="0"  ixz="0"
+               iyy="0.0027" iyz="0"
+               izz="0.001111" />
+      </inertial>
+
+  </link>
+
+  <!--left rear wheel joint-->
+
+  <joint type="continuous" name="left_rear_wheel_joint">
+     <origin xyz="-0.16 0.14 0.05" rpy="1.5708 0 0" />
+    <parent link="chassis" />
+    <child link="left_rear_wheel" />
+    <axis xyz="0 0 -1" />
+    <limit effort="10" velocity="100" />
+  </joint>
+
+  <!-- Material -->
+  
+  <gazebo reference="left_rear_wheel">
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!--Transmission-->
+
+  <transmission name="left_rear_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_rear_wheel_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rear_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+
+
+
+<!--RIGHT REAR WHEEL -->
+
+  <link name="right_rear_wheel">
+
+    <collision name="collision">
+      <origin xyz="0 0 0.0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.045" radius="0.05" />
+      </geometry>
+    </collision>
+
+    <visual name="right_rear_wheel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.045" radius="0.05" />
+      </geometry>
+    <material name="black" />
+    </visual>
+
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.29" />
+      <inertia ixx="0.0027" ixy="0"  ixz="0"
+               iyy="0.0027" iyz="0"
+               izz="0.001111" />
+    </inertial>
+  </link>
+
+  <!--right rear wheel joint-->
+
+  <joint type="continuous" name="right_rear_wheel_joint">
+     <origin xyz="-0.16 -0.14 0.05" rpy="1.5708 0 0" />
+    <parent link="chassis" />
+    <child link="right_rear_wheel" />
+    <axis xyz="0 0 -1" />
+    <limit effort="10" velocity="100" />
+  </joint>
+
+
+  <!-- Material -->
+  <gazebo reference="right_rear_wheel">
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!--Transmission-->
+
+  <transmission name="right_rear_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_rear_wheel_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rear_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+
+
+<!-- left front wheel steering link-->
+
+  <link name="left_steering_link">
+    <xacro:null_inertial/>
+  </link>
+
+  <joint type="revolute" name="left_steering_joint">
+    <origin xyz="0.16 0.14 0.05" rpy="0 0 0"/>
+    <parent link="chassis" />
+    <child link="left_steering_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="10" lower="-0.5" upper="0.5" velocity="0.5" />
+  </joint>
+
+  <transmission name="left_steering_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_steering_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_steering_act">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+
+<!-- right front wheel steering link-->
+
+  <link name="right_steering_link">
+    <xacro:null_inertial/>
+  </link>
+
+  <joint type="revolute" name="right_steering_joint">
+    <origin xyz="0.16 -0.14 0.05" rpy="0 0 0"/>
+    <parent link="chassis" />
+    <child link="right_steering_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="10" lower="-0.5" upper="0.5" velocity="0.5" />
+  </joint>
+
+  <transmission name="right_steering_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_steering_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_steering_act">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+
+<!-- LEFT FRONT WHEEL -->
+
+  <link name="left_front_wheel">
+
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.045" radius="0.05" />
+      </geometry>
+    </collision>
+
+    <visual name="left_front_wheel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.045" radius="0.05" />
+      </geometry>
+    <material name="black" />
+    </visual>
+
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.29" />
+      <inertia ixx="0.0027" ixy="0"  ixz="0"
+               iyy="0.0027" iyz="0"
+               izz="0.001111" />
+    </inertial>
+
+  </link>
+
+  <!--left front wheel joint-->
+
+  <joint type="continuous" name="left_front_wheel_joint">
+    <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    <parent link="left_steering_link" />
+    <child link="left_front_wheel" />
+    <axis xyz="0 0 -1" />
+    <limit effort="10" velocity="100" />
+  </joint>
+
+
+  <!-- Material -->
+  <gazebo reference="left_front_wheel">
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!--Transmission-->
+
+  <transmission name="left_front_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_front_wheel_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="left_front_wheel_act">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+
+
+<!-- RIGHT FRONT WHEEL -->
+
+  <link name="right_front_wheel">
+
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.045" radius="0.05" />
+      </geometry>
+    </collision>
+
+    <visual name="right_front_wheel_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.045" radius="0.05" />
+      </geometry>
+    <material name="black" />
+    </visual>
+
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.29" />
+      <inertia ixx="0.0027" ixy="0"  ixz="0"
+               iyy="0.0027" iyz="0"
+               izz="0.001111" />
+    </inertial>
+  </link>
+
+  <!--right front wheel joint-->
+
+  <joint type="continuous" name="right_front_wheel_joint">
+    <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+    <parent link="right_steering_link" />
+    <child link="right_front_wheel" />
+    <axis xyz="0 0 -1" />
+    <limit effort="10" velocity="100" />
+  </joint>
+
+  <!-- Material -->
+  <gazebo reference="right_front_wheel">
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!--Transmission-->
+
+  <transmission name="right_front_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_front_wheel_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="right_front_wheel_act">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+
+  <!-- Link6 -->
+  <gazebo reference="left_steering_link">
+    <mu1>0.6</mu1>
+    <mu2>0.6</mu2>
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <!-- Link7 -->
+  <gazebo reference="right_steering_link">
+    <mu1>0.6</mu1>
+    <mu2>0.6</mu2>
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+
+  <!-- Add Hokuyo laser scanner -->
+
+  <link name="laser">
+    <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+	    <mass value="0.130" />
+	    <inertia ixx="4E-06" ixy="0" ixz="0"
+		     iyy="4E-06" iyz="0"
+		     izz="4E-06" />
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://f1tenth_description/meshes/hokuyo.dae"/>
+        <material name="grey" />
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="hokuyo_joint" type="fixed">
+    <origin xyz="-0.1 0 0.12" rpy="0 0 0"/>
+    <parent link="chassis" />
+    <child link="laser" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+
+<!-- Camera -->
+  <link name="camera_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size=" 0.02 0.1 0.02"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.1 0.02"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0.208 0 0.1" rpy="0 0 0"/>
+    <parent link="chassis"/>
+    <child link="camera_link"/>
+  </joint>
+
+<!--IMU-->
+
+  <link name="imu_link">
+    <xacro:null_inertial/>
+  </link>
+
+  <joint name="imu_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    <parent link="chassis"/>
+    <child link="imu_link"/>
+  </joint>
+</robot>
+

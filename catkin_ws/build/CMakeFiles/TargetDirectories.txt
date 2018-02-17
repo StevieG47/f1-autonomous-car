@@ -1,0 +1,8 @@
+/root/ROS/f1/f1/catkin_ws/build/f1tenth_gazebo/CMakeFiles/_catkin_empty_exported_target.dir
+/root/ROS/f1/f1/catkin_ws/build/CMakeFiles/clean_test_results.dir
+/root/ROS/f1/f1/catkin_ws/build/CMakeFiles/download_extra_data.dir
+/root/ROS/f1/f1/catkin_ws/build/CMakeFiles/doxygen.dir
+/root/ROS/f1/f1/catkin_ws/build/gtest/CMakeFiles/gtest.dir
+/root/ROS/f1/f1/catkin_ws/build/gtest/CMakeFiles/gtest_main.dir
+/root/ROS/f1/f1/catkin_ws/build/CMakeFiles/run_tests.dir
+/root/ROS/f1/f1/catkin_ws/build/CMakeFiles/tests.dir
