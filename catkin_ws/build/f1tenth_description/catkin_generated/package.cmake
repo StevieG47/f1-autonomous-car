@@ -10,4 +10,7 @@ set(f1tenth_description_EXEC_DEPENDS "gazebo_ros_control" "hardware_interface" "
 set(f1tenth_description_RUN_DEPENDS "gazebo_ros_control" "hardware_interface" "transmission_interface" "xacro" "joint_state_publisher" "robot_state_publisher" "rviz")
 set(f1tenth_description_TEST_DEPENDS )
 set(f1tenth_description_DOC_DEPENDS )
+set(f1tenth_description_URL_WEBSITE "")
+set(f1tenth_description_URL_BUGTRACKER "")
+set(f1tenth_description_URL_REPOSITORY "")
 set(f1tenth_description_DEPRECATED "")

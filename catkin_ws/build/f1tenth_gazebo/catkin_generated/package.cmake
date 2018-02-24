@@ -10,4 +10,7 @@ set(f1_EXEC_DEPENDS "gazebo_plugins" "gazebo_ros" "gazebo_ros_control" "f1tenth_
 set(f1_RUN_DEPENDS "gazebo_plugins" "gazebo_ros" "gazebo_ros_control" "f1tenth_control" "f1tenth_description" "xacro" "ackermann_msgs" "controller_manager" "controller_manager_msgs" "effort_controllers" "joint_state_controller" "rospy" "std_msgs" "tf")
 set(f1_TEST_DEPENDS )
 set(f1_DOC_DEPENDS )
+set(f1_URL_WEBSITE "")
+set(f1_URL_BUGTRACKER "")
+set(f1_URL_REPOSITORY "")
 set(f1_DEPRECATED "")

@@ -1,8 +1,0 @@
-prefix=/root/ROS/f1/f1/catkin_ws/install
-
-Name: f1tenth_gazebo
-Description: Description of f1tenth_gazebo
-Version: 0.1.0
-Cflags: 
-Libs: -L/root/ROS/f1/f1/catkin_ws/install/lib 
-Requires: 

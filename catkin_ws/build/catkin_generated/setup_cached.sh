@@ -7,4 +7,5 @@
 # new environment variables
 
 # modified environment variables
-export PWD="/root/ROS/f1/f1/catkin_ws/build"
+export GAZEBO_MODEL_PATH="/opt/ros/kinetic/share/osrf_gear/models:$GAZEBO_MODEL_PATH"
+export PWD="/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build"

@@ -1,23 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /root/ROS/f1/f1/catkin_ws/build/CMakeFiles/CMakeTmp
+Change Dir: /home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec459190463/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec459190463.dir/build.make CMakeFiles/cmTryCompileExec459190463.dir/build
-make[1]: Entering directory `/root/ROS/f1/f1/catkin_ws/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /root/ROS/f1/f1/catkin_ws/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec459190463.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec459190463.dir/CheckSymbolExists.c.o   -c /root/ROS/f1/f1/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTryCompileExec459190463
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec459190463.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec459190463.dir/CheckSymbolExists.c.o  -o cmTryCompileExec459190463 -rdynamic 
-CMakeFiles/cmTryCompileExec459190463.dir/CheckSymbolExists.c.o: In function `main':
+Run Build Command:"/usr/bin/make" "cmTC_d8b2c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d8b2c.dir/build.make CMakeFiles/cmTC_d8b2c.dir/build
+make[1]: Entering directory '/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d8b2c.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_d8b2c.dir/CheckSymbolExists.c.o   -c /home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_d8b2c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8b2c.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_d8b2c.dir/CheckSymbolExists.c.o  -o cmTC_d8b2c -rdynamic 
+CMakeFiles/cmTC_d8b2c.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-make[1]: *** [cmTryCompileExec459190463] Error 1
-make[1]: Leaving directory `/root/ROS/f1/f1/catkin_ws/build/CMakeFiles/CMakeTmp'
-make: *** [cmTryCompileExec459190463/fast] Error 2
+CMakeFiles/cmTC_d8b2c.dir/build.make:97: recipe for target 'cmTC_d8b2c' failed
+make[1]: *** [cmTC_d8b2c] Error 1
+make[1]: Leaving directory '/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d8b2c/fast' failed
+make: *** [cmTC_d8b2c/fast] Error 2
 
-File /root/ROS/f1/f1/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -33,21 +34,22 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /root/ROS/f1/f1/catkin_ws/build/CMakeFiles/CMakeTmp
+Change Dir: /home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec1123522610/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec1123522610.dir/build.make CMakeFiles/cmTryCompileExec1123522610.dir/build
-make[1]: Entering directory `/root/ROS/f1/f1/catkin_ws/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /root/ROS/f1/f1/catkin_ws/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec1123522610.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1123522610.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec1123522610
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1123522610.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1123522610.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1123522610 -rdynamic -lpthreads 
+Run Build Command:"/usr/bin/make" "cmTC_1c9af/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1c9af.dir/build.make CMakeFiles/cmTC_1c9af.dir/build
+make[1]: Entering directory '/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1c9af.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_1c9af.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1c9af
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1c9af.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_1c9af.dir/CheckFunctionExists.c.o  -o cmTC_1c9af -rdynamic -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [cmTryCompileExec1123522610] Error 1
-make[1]: Leaving directory `/root/ROS/f1/f1/catkin_ws/build/CMakeFiles/CMakeTmp'
-make: *** [cmTryCompileExec1123522610/fast] Error 2
+CMakeFiles/cmTC_1c9af.dir/build.make:97: recipe for target 'cmTC_1c9af' failed
+make[1]: *** [cmTC_1c9af] Error 1
+make[1]: Leaving directory '/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_1c9af/fast' failed
+make: *** [cmTC_1c9af/fast] Error 2
 
 

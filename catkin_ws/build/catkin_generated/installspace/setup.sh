@@ -5,10 +5,12 @@
 # It tries it's best to undo changes from a previously sourced setup file before.
 # Supported command line options:
 # --extend: skips the undoing of changes from a previously sourced setup file
+#   (in plain sh shell which does't support arguments for sourced scripts you
+#   can set the environment variable `CATKIN_SETUP_UTIL_ARGS=--extend` instead)
 
 # since this file is sourced either use the provided _CATKIN_SETUP_DIR
 # or fall back to the destination set at configure time
-: ${_CATKIN_SETUP_DIR:=/root/ROS/f1/f1/catkin_ws/install}
+: ${_CATKIN_SETUP_DIR:=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/install}
 _SETUP_UTIL="$_CATKIN_SETUP_DIR/_setup_util.py"
 unset _CATKIN_SETUP_DIR
 
@@ -27,7 +29,6 @@ unset _UNAME
 
 # make sure to export all environment variables
 export CMAKE_PREFIX_PATH
-export CPATH
 if [ $_IS_DARWIN -eq 0 ]; then
   export LD_LIBRARY_PATH
 else
@@ -56,7 +57,7 @@ if [ $? -ne 0 -o ! -f "$_SETUP_TMP" ]; then
   echo "Could not create temporary file: $_SETUP_TMP"
   return 1
 fi
-CATKIN_SHELL=$CATKIN_SHELL "$_SETUP_UTIL" $@ >> "$_SETUP_TMP"
+CATKIN_SHELL=$CATKIN_SHELL "$_SETUP_UTIL" $@ $CATKIN_SETUP_UTIL_ARGS >> "$_SETUP_TMP"
 _RC=$?
 if [ $_RC -ne 0 ]; then
   if [ $_RC -eq 2 ]; then

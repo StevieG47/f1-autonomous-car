@@ -1,8 +1,8 @@
-prefix=/root/ROS/f1/f1/catkin_ws/devel
+prefix=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/devel
 
 Name: f1
 Description: Description of f1
 Version: 0.1.0
 Cflags: 
-Libs: -L/root/ROS/f1/f1/catkin_ws/devel/lib 
+Libs: -L/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/devel/lib 
 Requires: 

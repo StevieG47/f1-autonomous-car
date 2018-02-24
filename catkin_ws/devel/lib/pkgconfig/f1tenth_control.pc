@@ -1,8 +1,8 @@
-prefix=/root/ROS/f1/f1/catkin_ws/devel
+prefix=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/devel
 
 Name: f1tenth_control
 Description: Description of f1tenth_control
 Version: 0.0.0
 Cflags: 
-Libs: -L/root/ROS/f1/f1/catkin_ws/devel/lib 
+Libs: -L/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/devel/lib 
 Requires: 

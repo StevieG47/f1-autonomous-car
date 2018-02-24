@@ -56,7 +56,7 @@ moveBindings = {
         'j':(0,1),
         'l':(0,-1),
         'u':(1,1),
-        ',':(-1,0),
+        'k':(-1,0),
         '.':(-1,1),
         'm':(-1,-1),
            }
@@ -82,7 +82,7 @@ def getKey():
     return key
 
 speed = .2
-turn = 1
+turn = 1.5
 
 def vels(speed,turn):
     return "currently:\tspeed %s\tturn %s " % (speed,turn)
