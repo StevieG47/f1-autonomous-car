@@ -117,10 +117,11 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/gtest/cmake_install.cmake")
-  include("/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/Twist2Ack/cmake_install.cmake")
   include("/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/f1tenth_gazebo/cmake_install.cmake")
   include("/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/f1tenth_control/cmake_install.cmake")
   include("/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/f1tenth_description/cmake_install.cmake")
+  include("/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/Twist2Ack/cmake_install.cmake")
+  include("/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/read_map/cmake_install.cmake")
 
 endif()
 

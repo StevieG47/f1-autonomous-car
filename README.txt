@@ -8,7 +8,9 @@ roslaunch f1 f1-Slam.launch
 roslaunch teb_local_planner_tutorials robot_carlike_in_stage.launch
 ```
 
-## Convert twist messages to ackermann
+- Use 2D Nav Goal in RViz to move the car
+
+## Read occupancy grid
 ```
-rosrun Twist2Ack twist2ack.py 
+rosrun read_map readOccMap
 ```

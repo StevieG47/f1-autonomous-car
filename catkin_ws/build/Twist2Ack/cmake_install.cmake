@@ -33,22 +33,22 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/Twist2Ack/catkin_generated/installspace/Twist2Ack.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/Twist2Ack/catkin_generated/installspace/twist2ack.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Twist2Ack/cmake" TYPE FILE FILES
-    "/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/Twist2Ack/catkin_generated/installspace/Twist2AckConfig.cmake"
-    "/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/Twist2Ack/catkin_generated/installspace/Twist2AckConfig-version.cmake"
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/twist2ack/cmake" TYPE FILE FILES
+    "/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/Twist2Ack/catkin_generated/installspace/twist2ackConfig.cmake"
+    "/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/Twist2Ack/catkin_generated/installspace/twist2ackConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Twist2Ack" TYPE FILE FILES "/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/Twist2Ack/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/twist2ack" TYPE FILE FILES "/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/Twist2Ack/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Twist2Ack" TYPE DIRECTORY FILES
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/twist2ack" TYPE DIRECTORY FILES
     "/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/Twist2Ack/launch"
     "/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/Twist2Ack/cfg"
     "/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/Twist2Ack/maps"

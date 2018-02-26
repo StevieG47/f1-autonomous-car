@@ -1,2 +1,2 @@
-Twist2Ack:f1tenth_control:f1tenth_description:f1tenth_gazebo
+Twist2Ack:f1tenth_control:f1tenth_description:f1tenth_gazebo:read_map
 -DCATKIN_DEVEL_PREFIX=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/install -G Unix Makefiles
