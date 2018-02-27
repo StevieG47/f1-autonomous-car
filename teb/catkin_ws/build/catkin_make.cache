@@ -1,2 +1,0 @@
-teb_local_planner_tutorials
--DCATKIN_DEVEL_PREFIX=/home/steve/Documents/ROS/Docker/f1-autonomous-car/teb/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/steve/Documents/ROS/Docker/f1-autonomous-car/teb/catkin_ws/install -G Unix Makefiles
