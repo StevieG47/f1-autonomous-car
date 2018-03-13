@@ -1,0 +1,8 @@
+prefix=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/devel
+
+Name: twist2ack
+Description: Description of twist2ack
+Version: 0.2.1
+Cflags: 
+Libs: -L/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/devel/lib 
+Requires: 

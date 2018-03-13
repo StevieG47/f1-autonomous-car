@@ -1,0 +1,31 @@
+<package>
+  <name>f1-vision</name>
+  <version>0.1.0</version>
+  <description>vision</description>
+  
+  <maintainer email="47stevo@gmail.com">SG</maintainer>
+
+  <license>MIT</license>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>message_generation</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>cv_bridge</run_depend>
+  <run_depend>opencv2</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+
+
+  <run_depend>message_generation</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>cv_bridge</run_depend>
+  <run_depend>joint_state_controller</run_depend>
+  <run_depend>opencv2</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+
+
+  <export>
+  </export>
+</package>

@@ -89,6 +89,8 @@ def vels(speed,turn):
 
 if __name__=="__main__":
     settings = termios.tcgetattr(sys.stdin)
+    print "Keyboard Teleop"
+    rospy.loginfo("Searching")
     
     rospy.init_node('f1tenth_teleop')
     pub = rospy.Publisher('~/ackermann_cmd', AckermannDriveStamped, queue_size=5)
@@ -158,6 +160,7 @@ if __name__=="__main__":
 	    drivemsg.drive.acceleration = 1;
 	    drivemsg.drive.jerk = 1;
 	    drivemsg.drive.steering_angle = control_turn;
+	    print "control_turn: ", control_turn
 	    drivemsg.drive.steering_angle_velocity = 1;
 
             pub.publish(drivemsg)
@@ -178,6 +181,7 @@ if __name__=="__main__":
 	    drivemsg.drive.acceleration = 1;
 	    drivemsg.drive.jerk = 1;
 	    drivemsg.drive.steering_angle = control_turn;
+	    print "control_turn: ", control_turn
 	    drivemsg.drive.steering_angle_velocity = 1;
 
             pub.publish(drivemsg)

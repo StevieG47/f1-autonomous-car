@@ -1,0 +1,8 @@
+prefix=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/devel
+
+Name: f1-readlaser
+Description: Description of f1-readlaser
+Version: 0.1.0
+Cflags: 
+Libs: -L/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/devel/lib 
+Requires: 
