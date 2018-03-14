@@ -45,7 +45,7 @@ def laserCallback(data):
     theta = 50;
     
     angleRight = 50
-    angleLeft = 140
+    angleLeft = 130
     angleForward = 90
     
     distRight = getRange2(data,angleRight)
@@ -54,11 +54,13 @@ def laserCallback(data):
       
     angle = 0
     speed = .3
-    if distRight < .8:
+    lrDist = 1.1
+    forwardDist = 2
+    if distRight < lrDist:
         speed = .1
         angle = .3
     
-    if distLeft < .8:
+    if distLeft < lrDist:
         speed = .1
         angle = -.3
     
@@ -146,7 +148,7 @@ if __name__ == '__main__':
 
 		# publish drive msgs
         pub.publish(drivemsg)
-        rospy.sleep(.15)
+        rospy.sleep(.35)
 
 
 

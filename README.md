@@ -1,6 +1,11 @@
 ## Overview
 Run an f1 tenth car simulation in Gazebo. Uses hector mapping and teb local planner. Published twist messages from the planner are converted to ackermann messages to move the car. 
 
+## Dependencies
+-ROS kinetic
+-teb_local_planner
+-hector_mapping
+
 ## How to Build
 ```
 git clone https://github.com/StevieG47/f1-autonomous-car
@@ -34,8 +39,18 @@ roslaunch teb_local_planner_tutorials robot_carlike_in_stage.launch
 ![f1rviz](https://user-images.githubusercontent.com/25371934/36716896-fd9c5dd0-1b69-11e8-9c83-e59bb640b54e.png)
 
 ## Moving the car
-Navigation goals can be set using the 2D Nav Goal feature in rviz. Since it is an ackermann vehicle, it may not be able to navigate to the goal if the only path requires the vehicle to turn in place. 
+A simple autonomous obstacle avoidance method can be used by opening a third terminal, navigating to the first catkin_ws, then
+```
+catkin_make
+source devel/setup.bash
+rosrun f1-readlaser followWall.py
+```
+
+Navigation goals can also be set manually using the 2D Nav Goal feature in rviz. Since it is an ackermann vehicle, it may not be able to navigate to the goal if the only path requires the vehicle to turn in place. 
+
+
 
 ## Read occupancy grid
 Work in progress
+
 rosrun read_map readOccMap
