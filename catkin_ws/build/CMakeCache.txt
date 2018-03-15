@@ -202,13 +202,13 @@ EMPY_SCRIPT:STRING=/usr/bin/empy
 GTEST_INCLUDE_DIR:PATH=/usr/include
 
 //Path to a library.
-GTEST_LIBRARY:FILEPATH=GTEST_LIBRARY-NOTFOUND
+GTEST_LIBRARY:FILEPATH=/usr/lib/libgtest.a
 
 //Path to a library.
 GTEST_LIBRARY_DEBUG:FILEPATH=GTEST_LIBRARY_DEBUG-NOTFOUND
 
 //Path to a library.
-GTEST_MAIN_LIBRARY:FILEPATH=GTEST_MAIN_LIBRARY-NOTFOUND
+GTEST_MAIN_LIBRARY:FILEPATH=/usr/lib/libgtest_main.a
 
 //Path to a library.
 GTEST_MAIN_LIBRARY_DEBUG:FILEPATH=GTEST_MAIN_LIBRARY_DEBUG-NOTFOUND
@@ -272,6 +272,12 @@ cpp_common_DIR:PATH=/opt/ros/kinetic/share/cpp_common/cmake
 
 //The directory containing a CMake configuration file for cv_bridge.
 cv_bridge_DIR:PATH=/opt/ros/kinetic/share/cv_bridge/cmake
+
+//Value Computed by CMake
+f1-move_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/moving
+
+//Value Computed by CMake
+f1-move_SOURCE_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/moving
 
 //Value Computed by CMake
 f1-readLaser_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/read_Laser
@@ -580,6 +586,8 @@ FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/opt/ros/kinetic][v3.3.1()]
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python][v2.7.12()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+GTEST_BOTH_LIBRARIES:INTERNAL=/usr/lib/libgtest.a;/usr/lib/libgtest_main.a
+GTEST_FOUND:INTERNAL=TRUE
 GTEST_FROM_SOURCE_FOUND:INTERNAL=TRUE
 GTEST_FROM_SOURCE_INCLUDE_DIRS:INTERNAL=/usr/include
 GTEST_FROM_SOURCE_LIBRARIES:INTERNAL=gtest
@@ -587,10 +595,13 @@ GTEST_FROM_SOURCE_LIBRARY_DIRS:INTERNAL=/home/steve/Documents/ROS/Docker/f1-auto
 GTEST_FROM_SOURCE_MAIN_LIBRARIES:INTERNAL=gtest_main
 //ADVANCED property for variable: GTEST_INCLUDE_DIR
 GTEST_INCLUDE_DIR-ADVANCED:INTERNAL=1
+GTEST_INCLUDE_DIRS:INTERNAL=/usr/include
+GTEST_LIBRARIES:INTERNAL=/usr/lib/libgtest.a
 //ADVANCED property for variable: GTEST_LIBRARY
 GTEST_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_LIBRARY_DEBUG
 GTEST_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+GTEST_MAIN_LIBRARIES:INTERNAL=/usr/lib/libgtest_main.a
 //ADVANCED property for variable: GTEST_MAIN_LIBRARY
 GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_MAIN_LIBRARY_DEBUG

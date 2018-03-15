@@ -152,6 +152,50 @@ if __name__ == '__main__':
 
 
 
+#//You can also make use of the map which is being built by the "gslam_mapping" subsystem
+#//There is some code here to help but you can understand the API also
+#// by looking up the OccupancyGrid message and its members (this is the API for the message).
+#//If you want me to explain the data structure I will - just ask me in advance of class.
+#void map_callback ( const nav_msgs::OccupancyGrid::ConstPtr &msg ) {
+#
+#    const bool chatty_map = true;
+#
+#    map_msg = *msg;
+#
+#    double map_width = map_msg.info.width;
+#    double map_height = map_msg.info.width;
+#
+#    double map_origin_x = map_msg.info.origin.position.x;
+#    double map_origin_y = map_msg.info.origin.position.y;
+#    double map_orientation = acos ( map_msg.info.origin.orientation.z );
+#
+#    std::vector<signed char > map = map_msg.data;
+#    
+#    
+#
+#//     if ( chatty_map ) std::cout << "------MAP:------" << std::endl;
+#// 
+#//     for ( unsigned int x = 0; x < map_width; x++ ) {
+#//         for ( unsigned int y = 0; y < map_height; y++ ) {
+#// 
+#//             unsigned int index = x + y * map_width;
+#//             if (index > 0 && index < map.size()) {
+#//                 if ( map[index] > 50 ) { // 0 – 100 represents how occupied
+#//                     //this square is occupied
+#//                 } else if ( map[index] >= 0 ) {
+#//                     //this square is unoccupied
+#//                     if (x > map_width / 2){
+#//                    
+#//                 } else {
+#//                     //this square is unknown
+#//                 }
+#//             }
+#//         }
+#//         if ( chatty_map ) std::cout << std::endl;
+#//     }
+#//     if ( chatty_map ) std::cout << "----------------" << std::endl;
+#//     }
+        #}
 
 
 

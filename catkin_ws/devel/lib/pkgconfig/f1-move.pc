@@ -1,0 +1,8 @@
+prefix=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/devel
+
+Name: f1-move
+Description: Description of f1-move
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/devel/lib 
+Requires: 

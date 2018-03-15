@@ -43,8 +43,10 @@ A simple autonomous obstacle avoidance method can be used by opening a third ter
 ```
 catkin_make
 source devel/setup.bash
-rosrun f1-readlaser followWall.py
+rosrun f1-move lidarmove
 ```
+
+This reads from the /scan topic and publishes ackermann_msgs to move the car.
 
 Navigation goals can also be set manually using the 2D Nav Goal feature in rviz. Since it is an ackermann vehicle, it may not be able to navigate to the goal if the only path requires the vehicle to turn in place. 
 
