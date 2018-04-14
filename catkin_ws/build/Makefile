@@ -790,6 +790,19 @@ tf2_msgs_generate_messages_eus/fast:
 .PHONY : tf2_msgs_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named mapmove
+
+# Build rule for target.
+mapmove: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mapmove
+.PHONY : mapmove
+
+# fast build rule for target.
+mapmove/fast:
+	$(MAKE) -f moving/CMakeFiles/mapmove.dir/build.make moving/CMakeFiles/mapmove.dir/build
+.PHONY : mapmove/fast
+
+#=============================================================================
 # Target rules for targets named ackermann_msgs_generate_messages_py
 
 # Build rule for target.
@@ -1045,6 +1058,7 @@ help:
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... ackermann_msgs_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_eus"
+	@echo "... mapmove"
 	@echo "... ackermann_msgs_generate_messages_py"
 	@echo "... nav_msgs_generate_messages_cpp"
 	@echo "... tf_generate_messages_nodejs"

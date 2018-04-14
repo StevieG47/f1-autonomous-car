@@ -56,6 +56,17 @@ CMAKE_BINARY_DIR = /home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -78,17 +89,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -421,6 +421,21 @@ tf2_msgs_generate_messages_eus/fast:
 .PHONY : tf2_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
+moving/CMakeFiles/mapmove.dir/rule:
+	cd /home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moving/CMakeFiles/mapmove.dir/rule
+.PHONY : moving/CMakeFiles/mapmove.dir/rule
+
+# Convenience name for target.
+mapmove: moving/CMakeFiles/mapmove.dir/rule
+
+.PHONY : mapmove
+
+# fast build rule for target.
+mapmove/fast:
+	cd /home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build && $(MAKE) -f moving/CMakeFiles/mapmove.dir/build.make moving/CMakeFiles/mapmove.dir/build
+.PHONY : mapmove/fast
+
+# Convenience name for target.
 moving/CMakeFiles/ackermann_msgs_generate_messages_py.dir/rule:
 	cd /home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 moving/CMakeFiles/ackermann_msgs_generate_messages_py.dir/rule
 .PHONY : moving/CMakeFiles/ackermann_msgs_generate_messages_py.dir/rule
@@ -657,12 +672,40 @@ src/lidarmove.cpp.s:
 	cd /home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build && $(MAKE) -f moving/CMakeFiles/lidarmove.dir/build.make moving/CMakeFiles/lidarmove.dir/src/lidarmove.cpp.s
 .PHONY : src/lidarmove.cpp.s
 
+src/mapmove.o: src/mapmove.cpp.o
+
+.PHONY : src/mapmove.o
+
+# target to build an object file
+src/mapmove.cpp.o:
+	cd /home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build && $(MAKE) -f moving/CMakeFiles/mapmove.dir/build.make moving/CMakeFiles/mapmove.dir/src/mapmove.cpp.o
+.PHONY : src/mapmove.cpp.o
+
+src/mapmove.i: src/mapmove.cpp.i
+
+.PHONY : src/mapmove.i
+
+# target to preprocess a source file
+src/mapmove.cpp.i:
+	cd /home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build && $(MAKE) -f moving/CMakeFiles/mapmove.dir/build.make moving/CMakeFiles/mapmove.dir/src/mapmove.cpp.i
+.PHONY : src/mapmove.cpp.i
+
+src/mapmove.s: src/mapmove.cpp.s
+
+.PHONY : src/mapmove.s
+
+# target to generate assembly for a file
+src/mapmove.cpp.s:
+	cd /home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build && $(MAKE) -f moving/CMakeFiles/mapmove.dir/build.make moving/CMakeFiles/mapmove.dir/src/mapmove.cpp.s
+.PHONY : src/mapmove.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/local"
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... actionlib_msgs_generate_messages_nodejs"
 	@echo "... tf_generate_messages_py"
@@ -682,11 +725,11 @@ help:
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... ackermann_msgs_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_eus"
+	@echo "... mapmove"
 	@echo "... ackermann_msgs_generate_messages_py"
 	@echo "... nav_msgs_generate_messages_cpp"
 	@echo "... tf_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_nodejs"
-	@echo "... install/local"
 	@echo "... rebuild_cache"
 	@echo "... ackermann_msgs_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_cpp"
@@ -704,6 +747,9 @@ help:
 	@echo "... src/lidarmove.o"
 	@echo "... src/lidarmove.i"
 	@echo "... src/lidarmove.s"
+	@echo "... src/mapmove.o"
+	@echo "... src/mapmove.i"
+	@echo "... src/mapmove.s"
 .PHONY : help
 
 

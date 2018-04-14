@@ -98,8 +98,13 @@ catkin_package(
 
 include_directories(include ${catkin_INCLUDE_DIRS})
 
+# Lidar Move
 add_executable(lidarmove src/lidarmove.cpp )
 target_link_libraries(lidarmove ${catkin_LIBRARIES})
+
+# Map Move
+add_executable(mapmove src/mapmove.cpp )
+target_link_libraries(mapmove ${catkin_LIBRARIES})
 
 #add_executable(printPose src/printPose.cpp )
 #target_link_libraries(printPose ${catkin_LIBRARIES})

@@ -1,0 +1,12 @@
+# CMake generated Testfile for 
+# Source directory: /home/steve/Documents/ROS/Docker/f1-autonomous-car/f1_tenth_sim/catkin_ws/src
+# Build directory: /home/steve/Documents/ROS/Docker/f1-autonomous-car/f1_tenth_sim/catkin_ws/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+subdirs(racecar)
+subdirs(racecar_control)
+subdirs(racecar_description)
+subdirs(ackermann_cmd_mux)
+subdirs(race)
+subdirs(racecar_gazebo)

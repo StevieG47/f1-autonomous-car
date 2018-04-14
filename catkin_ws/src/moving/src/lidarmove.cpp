@@ -50,19 +50,19 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr &data) {
 	
 	// If too close on the right turn left
 	if (distRight < lrDist) {
-		speed = .1;
+		speed = .25;
 		angle = .3;
 	}
 	
 	// If too close on the left turn right
 	if (distLeft < lrDist) {
-		speed = .1;
+		speed = .25;
 		angle = -.3;
 	}
 	
 	// If too close ahead check left/right dist, turn away from closest wall
 	if (distForward < fDist) {
-		speed = .05;
+		speed = .25;
 		if (distLeft < distRight) { 
 			angle = -.8;
 		}
@@ -91,6 +91,7 @@ void scanCallback(const sensor_msgs::LaserScan::ConstPtr &data) {
 	ackPub.publish(cmd);
 	usleep(10);
 }
+
 
 int main(int argc, char **argv) {
 	

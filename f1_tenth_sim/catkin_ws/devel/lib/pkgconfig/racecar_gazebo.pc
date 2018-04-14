@@ -1,0 +1,8 @@
+prefix=/home/steve/Documents/ROS/Docker/f1-autonomous-car/f1_tenth_sim/catkin_ws/devel
+
+Name: racecar_gazebo
+Description: Description of racecar_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/steve/Documents/ROS/Docker/f1-autonomous-car/f1_tenth_sim/catkin_ws/devel/lib 
+Requires: 

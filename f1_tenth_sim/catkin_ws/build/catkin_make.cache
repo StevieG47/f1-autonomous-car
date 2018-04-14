@@ -1,0 +1,2 @@
+ackermann_cmd_mux:race:racecar:racecar_control:racecar_description:racecar_gazebo
+-DCATKIN_DEVEL_PREFIX=/home/steve/Documents/ROS/Docker/f1-autonomous-car/f1_tenth_sim/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/steve/Documents/ROS/Docker/f1-autonomous-car/f1_tenth_sim/catkin_ws/install -G Unix Makefiles
