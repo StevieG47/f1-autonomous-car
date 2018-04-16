@@ -225,6 +225,9 @@ NOSETESTS:FILEPATH=/usr/bin/nosetests-2.7
 //The directory containing a CMake configuration file for OpenCV.
 OpenCV_DIR:PATH=/opt/ros/kinetic/share/OpenCV-3.3.1
 
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+
 //Path to a program.
 PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python
 
@@ -255,6 +258,15 @@ _CATKIN_GTEST_INCLUDE:FILEPATH=/usr/include/gtest/gtest.h
 //Path to a file.
 _CATKIN_GTEST_SRC:FILEPATH=/usr/src/gtest/src/gtest.cc
 
+//Value Computed by CMake
+ackermann_cmd_mux_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/ackermann_cmd_mux
+
+//Value Computed by CMake
+ackermann_cmd_mux_SOURCE_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/ackermann_cmd_mux
+
+//Dependencies for the target
+ackermann_cmd_mux_nodelet_LIB_DEPENDS:STATIC=general;/opt/ros/kinetic/lib/libnodeletlib.so;general;/opt/ros/kinetic/lib/libbondcpp.so;general;/usr/lib/x86_64-linux-gnu/libuuid.so;general;/opt/ros/kinetic/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/kinetic/lib/libroslib.so;general;/opt/ros/kinetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/kinetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/usr/lib/x86_64-linux-gnu/libboost_signals.so;general;/opt/ros/kinetic/lib/librosconsole.so;general;/opt/ros/kinetic/lib/librosconsole_log4cxx.so;general;/opt/ros/kinetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/kinetic/lib/libxmlrpcpp.so;general;/opt/ros/kinetic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/kinetic/lib/libroscpp_serialization.so;general;/opt/ros/kinetic/lib/librostime.so;general;/opt/ros/kinetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so;general;yaml-cpp;
+
 //The directory containing a CMake configuration file for ackermann_msgs.
 ackermann_msgs_DIR:PATH=/opt/ros/kinetic/share/ackermann_msgs/cmake
 
@@ -264,14 +276,26 @@ actionlib_DIR:PATH=/opt/ros/kinetic/share/actionlib/cmake
 //The directory containing a CMake configuration file for actionlib_msgs.
 actionlib_msgs_DIR:PATH=/opt/ros/kinetic/share/actionlib_msgs/cmake
 
+//The directory containing a CMake configuration file for bond.
+bond_DIR:PATH=/opt/ros/kinetic/share/bond/cmake
+
+//The directory containing a CMake configuration file for bondcpp.
+bondcpp_DIR:PATH=/opt/ros/kinetic/share/bondcpp/cmake
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/kinetic/share/catkin/cmake
+
+//The directory containing a CMake configuration file for class_loader.
+class_loader_DIR:PATH=/opt/ros/kinetic/share/class_loader/cmake
 
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/kinetic/share/cpp_common/cmake
 
 //The directory containing a CMake configuration file for cv_bridge.
 cv_bridge_DIR:PATH=/opt/ros/kinetic/share/cv_bridge/cmake
+
+//The directory containing a CMake configuration file for dynamic_reconfigure.
+dynamic_reconfigure_DIR:PATH=/opt/ros/kinetic/share/dynamic_reconfigure/cmake
 
 //Value Computed by CMake
 f1-move_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/moving
@@ -314,6 +338,12 @@ f1tenth_description_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autono
 
 //Value Computed by CMake
 f1tenth_description_SOURCE_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/f1tenth_description
+
+//The directory containing a CMake configuration file for gazebo_msgs.
+gazebo_msgs_DIR:PATH=/opt/ros/kinetic/share/gazebo_msgs/cmake
+
+//The directory containing a CMake configuration file for gazebo_ros.
+gazebo_ros_DIR:PATH=/opt/ros/kinetic/share/gazebo_ros/cmake
 
 //The directory containing a CMake configuration file for gencpp.
 gencpp_DIR:PATH=/opt/ros/kinetic/share/gencpp/cmake
@@ -376,8 +406,44 @@ message_runtime_DIR:PATH=/opt/ros/kinetic/share/message_runtime/cmake
 //The directory containing a CMake configuration file for nav_msgs.
 nav_msgs_DIR:PATH=/opt/ros/kinetic/share/nav_msgs/cmake
 
+//The directory containing a CMake configuration file for nodelet.
+nodelet_DIR:PATH=/opt/ros/kinetic/share/nodelet/cmake
+
 //The directory containing a CMake configuration file for opencv2.
 opencv2_DIR:PATH=opencv2_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for pluginlib.
+pluginlib_DIR:PATH=/opt/ros/kinetic/share/pluginlib/cmake
+
+//Value Computed by CMake
+race_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/race
+
+//Value Computed by CMake
+race_SOURCE_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/race
+
+//Value Computed by CMake
+racecar_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/racecar
+
+//Value Computed by CMake
+racecar_SOURCE_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/racecar
+
+//Value Computed by CMake
+racecar_control_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/racecar_control
+
+//Value Computed by CMake
+racecar_control_SOURCE_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/racecar_control
+
+//Value Computed by CMake
+racecar_description_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/racecar_description
+
+//Value Computed by CMake
+racecar_description_SOURCE_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/racecar_description
+
+//Value Computed by CMake
+racecar_gazebo_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/racecar_gazebo
+
+//Value Computed by CMake
+racecar_gazebo_SOURCE_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/racecar_gazebo
 
 //Value Computed by CMake
 read_map_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/read_map
@@ -403,6 +469,12 @@ rosgraph_DIR:PATH=/opt/ros/kinetic/share/rosgraph/cmake
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/kinetic/share/rosgraph_msgs/cmake
 
+//The directory containing a CMake configuration file for roslib.
+roslib_DIR:PATH=/opt/ros/kinetic/share/roslib/cmake
+
+//The directory containing a CMake configuration file for rospack.
+rospack_DIR:PATH=/opt/ros/kinetic/share/rospack/cmake
+
 //The directory containing a CMake configuration file for rospy.
 rospy_DIR:PATH=/opt/ros/kinetic/share/rospy/cmake
 
@@ -412,8 +484,14 @@ rostime_DIR:PATH=/opt/ros/kinetic/share/rostime/cmake
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/kinetic/share/sensor_msgs/cmake
 
+//The directory containing a CMake configuration file for smclib.
+smclib_DIR:PATH=/opt/ros/kinetic/share/smclib/cmake
+
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/kinetic/share/std_msgs/cmake
+
+//The directory containing a CMake configuration file for std_srvs.
+std_srvs_DIR:PATH=/opt/ros/kinetic/share/std_srvs/cmake
 
 //The directory containing a CMake configuration file for tf2.
 tf2_DIR:PATH=/opt/ros/kinetic/share/tf2/cmake
@@ -429,6 +507,9 @@ tf2_ros_DIR:PATH=/opt/ros/kinetic/share/tf2_ros/cmake
 
 //The directory containing a CMake configuration file for tf.
 tf_DIR:PATH=/opt/ros/kinetic/share/tf/cmake
+
+//The directory containing a CMake configuration file for trajectory_msgs.
+trajectory_msgs_DIR:PATH=/opt/ros/kinetic/share/trajectory_msgs/cmake
 
 //Value Computed by CMake
 twist2ack_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/Twist2Ack
@@ -541,7 +622,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=15
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -582,6 +663,8 @@ CMAKE_UNAME:INTERNAL=/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding OpenCV
 FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/opt/ros/kinetic][v3.3.1()]
+//Details about finding PkgConfig
+FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python][v2.7.12()]
 //Details about finding Threads
@@ -606,10 +689,48 @@ GTEST_MAIN_LIBRARIES:INTERNAL=/usr/lib/libgtest_main.a
 GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_MAIN_LIBRARY_DEBUG
 GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //This needs to be in PYTHONPATH when 'setup.py install' is called.
 //  And it needs to match.  But setuptools won't tell us where
 // it will install things.
 PYTHON_INSTALL_DIR:INTERNAL=lib/python2.7/dist-packages
+__pkg_config_checked_yaml-cpp:INTERNAL=1
+prefix_result:INTERNAL=
+yaml-cpp_CFLAGS:INTERNAL=
+yaml-cpp_CFLAGS_I:INTERNAL=
+yaml-cpp_CFLAGS_OTHER:INTERNAL=
+yaml-cpp_FOUND:INTERNAL=1
+yaml-cpp_INCLUDEDIR:INTERNAL=/usr/include
+yaml-cpp_INCLUDE_DIRS:INTERNAL=
+yaml-cpp_LDFLAGS:INTERNAL=-lyaml-cpp
+yaml-cpp_LDFLAGS_OTHER:INTERNAL=
+yaml-cpp_LIBDIR:INTERNAL=
+yaml-cpp_LIBRARIES:INTERNAL=yaml-cpp
+yaml-cpp_LIBRARY_DIRS:INTERNAL=
+yaml-cpp_LIBS:INTERNAL=
+yaml-cpp_LIBS_L:INTERNAL=
+yaml-cpp_LIBS_OTHER:INTERNAL=
+yaml-cpp_LIBS_PATHS:INTERNAL=
+yaml-cpp_PREFIX:INTERNAL=/usr
+yaml-cpp_STATIC_CFLAGS:INTERNAL=
+yaml-cpp_STATIC_CFLAGS_I:INTERNAL=
+yaml-cpp_STATIC_CFLAGS_OTHER:INTERNAL=
+yaml-cpp_STATIC_INCLUDE_DIRS:INTERNAL=
+yaml-cpp_STATIC_LDFLAGS:INTERNAL=-lyaml-cpp
+yaml-cpp_STATIC_LDFLAGS_OTHER:INTERNAL=
+yaml-cpp_STATIC_LIBDIR:INTERNAL=
+yaml-cpp_STATIC_LIBRARIES:INTERNAL=yaml-cpp
+yaml-cpp_STATIC_LIBRARY_DIRS:INTERNAL=
+yaml-cpp_STATIC_LIBS:INTERNAL=
+yaml-cpp_STATIC_LIBS_L:INTERNAL=
+yaml-cpp_STATIC_LIBS_OTHER:INTERNAL=
+yaml-cpp_STATIC_LIBS_PATHS:INTERNAL=
+yaml-cpp_VERSION:INTERNAL=0.5.2
+yaml-cpp_yaml-cpp_INCLUDEDIR:INTERNAL=
+yaml-cpp_yaml-cpp_LIBDIR:INTERNAL=
+yaml-cpp_yaml-cpp_PREFIX:INTERNAL=
+yaml-cpp_yaml-cpp_VERSION:INTERNAL=
 

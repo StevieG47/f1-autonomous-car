@@ -1,8 +1,0 @@
-prefix=/home/steve/Documents/ROS/Docker/f1-autonomous-car/f1_tenth_sim/catkin_ws/devel
-
-Name: race
-Description: Description of race
-Version: 0.0.0
-Cflags: -I/home/steve/Documents/ROS/Docker/f1-autonomous-car/f1_tenth_sim/catkin_ws/devel/include
-Libs: -L/home/steve/Documents/ROS/Docker/f1-autonomous-car/f1_tenth_sim/catkin_ws/devel/lib 
-Requires: roscpp rospy sensor_msgs std_msgs geometry_msgs
