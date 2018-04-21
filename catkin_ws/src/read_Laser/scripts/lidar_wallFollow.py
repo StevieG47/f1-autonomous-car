@@ -35,15 +35,32 @@ def wallFollower(scan):
     # If the left wall is closer, follow left wall
     if distRight > distLeft:
         error = getLeftError(distLeft)
-        #print("Following Left")
-        #print("dist: ", distLeft)
-        #print("error: ", error)
+        print("Following Left")
+        print("dist: ", distLeft)
+        print("error: ", error)
     
+    # If the right wall is closer, follow the right wall
     else:
         error = getRightError(distRight)
-        #print(" Following Right")
-        #print("dist: ", distRight)
-        #print("error: ", error)
+        print(" Following Right")
+        print("dist: ", distRight)
+        print("error: ", error)
+        
+        
+    # If we're about to go straight into wall we need a behavior separate from the wall following
+    # we've been doing. If distForward is < some value we'll check if left or right is closer
+    # Then turn away from the closer one
+    if distForward < 2:
+        
+        # Since this function only passes an error, we'll pass a specific error to let
+        # pdControl.py know distForward is small. Send a separate one for if left/right wall
+        # is closer
+        if distLeft < distRight:
+            error = 1234567 # send this specific number if we want to turn right
+        else:
+            error = 12345 # send this specific number if we want to turn left
+        
+        
         
     # Publish error 
     msg = pid_input()
@@ -51,7 +68,7 @@ def wallFollower(scan):
     msg.pid_vel = 1 # doesnt matter since we change it in pdControl.py
     pub.publish(msg)
     
-    print('Dist Forward: ', distForward)
+   # print('Dist Forward: ', distForward)
 
 
     

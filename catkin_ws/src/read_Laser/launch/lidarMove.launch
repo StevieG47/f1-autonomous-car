@@ -13,7 +13,7 @@ file = "$(find f1)/launch/f1tenth_world.launch">
 <!-- launch wall follower, controller, and ackermann topic conversion -->
 <node pkg="lidar_move" type="pdControl.py" name="pdControl" />
 <node pkg="lidar_move" type="convertToAckermann.py" name="convertNode"/>
-<node pkg="lidar_move" type="lidar_wallFollow.py" name="wallFollow" output="screen"/> 
+<node pkg="lidar_move" type="lidar_wallFollow.py" name="wallFollow" output="screen" /> 
 
 
 
