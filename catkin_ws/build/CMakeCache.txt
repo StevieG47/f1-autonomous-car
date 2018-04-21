@@ -394,6 +394,24 @@ gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 //Path to a library.
 lib:FILEPATH=/opt/ros/kinetic/lib/libtf2.so
 
+//Value Computed by CMake
+lidar-move_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/read_Laser
+
+//Value Computed by CMake
+lidar-move_SOURCE_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/read_Laser
+
+//Value Computed by CMake
+lidarMove_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/read_Laser
+
+//Value Computed by CMake
+lidarMove_SOURCE_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/read_Laser
+
+//Value Computed by CMake
+lidar_move_BINARY_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/build/read_Laser
+
+//Value Computed by CMake
+lidar_move_SOURCE_DIR:STATIC=/home/steve/Documents/ROS/Docker/f1-autonomous-car/catkin_ws/src/read_Laser
+
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/kinetic/share/message_filters/cmake
 

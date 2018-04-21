@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<launch>
+
+<param name="/use_sim_time" value="true"/>
+
+<!-- Launch f1 car in the corridor gazebo world-->
+<include 
+file = "$(find f1)/launch/f1tenth_world.launch">
+</include>
+
+
+<!-- launch wall follower, controller, and ackermann topic conversion -->
+<node pkg="lidar_move" type="pdControl.py" name="pdControl" />
+<node pkg="lidar_move" type="convertToAckermann.py" name="convertNode"/>
+<node pkg="lidar_move" type="lidar_wallFollow.py" name="wallFollow" output="screen"/> 
+
+
+
+<!-- Record bag file, default is not recording -->
+<arg name = "startRecord" default = "false" />
+<node
+pkg = "rosbag"
+type = "record"
+name = "rosbag_record_all"
+respawn = "true"
+output = "screen"
+args = "-a -O File -x /camera/(.*) "
+if = "$(arg startRecord)"
+/>
+
+</launch>

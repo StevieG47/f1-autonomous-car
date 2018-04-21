@@ -23,7 +23,7 @@
 
   <!-- Vehicle pose -->
   <arg name="x" default="-7.0"/>
-  <arg name="y" default="-1.7"/>
+  <arg name="y" default=".3"/>
   <arg name="z" default="0.1"/>
   <arg name="roll" default="0.0"/>
   <arg name="pitch" default="0.0"/>
