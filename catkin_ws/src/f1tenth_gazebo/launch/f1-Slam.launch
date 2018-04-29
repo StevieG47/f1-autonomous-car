@@ -6,7 +6,7 @@
 
 <!-- Launch f1 car in the corridor gazebo world-->
 <include 
-file = "$(find f1)/launch/f1tenth_world.launch">
+file = "$(find f1)/launch/f1tenth_corridor.launch">
 </include>
 
 <!--SLAM STUFF-->

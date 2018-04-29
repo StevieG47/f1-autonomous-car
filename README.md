@@ -1,10 +1,20 @@
 ## Overview
-Run an f1 tenth car simulation in Gazebo. Uses hector mapping and teb local planner. Published twist messages from the planner are converted to ackermann messages to move the car. 
+Run an f1 tenth car simulation in Gazebo. Uses hector mapping and teb local planner for SLAM. Also uses LiDAR readings to autonomously move through a racetrack 
 
 ## Dependencies
--ROS kinetic
--teb_local_planner
--hector_mapping
+- ROS
+- teb_local_planner
+- hector_slam
+- ackermann_msgs
+- move_base
+- controller_manager
+- ros_control
+- joint_state_controller
+- effort_contollers
+- position_controllers
+- amcl
+- global_planner
+
 
 ## How to Build
 ```
@@ -39,7 +49,9 @@ roslaunch teb_local_planner_tutorials robot_carlike_in_stage.launch
 ![f1rviz](https://user-images.githubusercontent.com/25371934/36716896-fd9c5dd0-1b69-11e8-9c83-e59bb640b54e.png)
 
 ## Moving the car
-A simple autonomous obstacle avoidance method can be used by opening a third terminal, navigating to the first catkin_ws, then
+Navigation goals can also be set manually using the 2D Nav Goal feature in rviz. Since it is an ackermann vehicle, it may not be able to navigate to the goal if the only path requires the vehicle to turn in place. 
+
+A simple autonomous obstacle avoidance method can also be used by opening a third terminal, navigating to the first catkin_ws, then
 ```
 catkin_make
 source devel/setup.bash
@@ -48,11 +60,3 @@ rosrun f1-move lidarmove
 
 This reads from the /scan topic and publishes ackermann_msgs to move the car.
 
-Navigation goals can also be set manually using the 2D Nav Goal feature in rviz. Since it is an ackermann vehicle, it may not be able to navigate to the goal if the only path requires the vehicle to turn in place. 
-
-
-
-## Read occupancy grid
-Work in progress
-
-rosrun read_map readOccMap

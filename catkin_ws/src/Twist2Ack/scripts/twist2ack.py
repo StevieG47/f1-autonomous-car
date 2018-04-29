@@ -35,7 +35,7 @@ if __name__ == '__main__':
     
     rospy.init_node('cmd_vel_to_ackermann_drive')
         
-    twist_cmd_topic = rospy.get_param('~twist_cmd_topic', '/cmd_vel_mux/input/navi') 
+    twist_cmd_topic = rospy.get_param('~twist_cmd_topic', '/cmd_vel')#_mux/input/navi') 
     ackermann_cmd_topic = rospy.get_param('~ackermann_cmd_topic', '/ackermann_cmd')
     wheelbase = rospy.get_param('~wheelbase', 1.0)
     frame_id = rospy.get_param('~frame_id', 'odom')
