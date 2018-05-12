@@ -63,8 +63,8 @@ def wallFollower(scan):
     # If we get to an area where distLeft and distRight are both out of range just turn left
     # If the track we were going on was clockwise as opposed to counter clock wise we would turn right
     # so we would go in the right direction
-    if distRight == inf and distLeft == inf: # FIND OUT HOW TO CHECK FOR INF
-        error = 12345
+   # if distRight == inf and distLeft == inf: # FIND OUT HOW TO CHECK FOR INF
+    #    error = 12345
         
         
         
